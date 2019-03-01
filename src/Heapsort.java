@@ -1,3 +1,5 @@
+package PQ;
+
 import java.util.Scanner;
 
 public class Heapsort {

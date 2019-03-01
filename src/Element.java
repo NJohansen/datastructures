@@ -1,3 +1,5 @@
+package PQ;
+
 public class Element {
 
     private int key;
