@@ -52,24 +52,19 @@ public class PQHeap implements PQ {
     //First increase the size of the heap with 1
     heapSize++;
 
-    // Insert the new Element e in the heap on the highest index.
-    elements[heapSize] = e;
-
-    increaseKey(e);
-  }
-
-  /**
-   * Increase key for any parents in the heap
-   * @param e
-   */
-  public void increaseKey(Element e) {
     int i = heapSize;
-    if (elements[parent(i)] == null) {
-      return;
-    }
+
+    // Insert the new Element e in the heap on the highest index.
+    elements[i] = e;
+
+    //While the heap-size is bigger than 0 and the parents key is bigger than
+    //the element then exchange the element with its parent.
     while (i > 0 && elements[parent(i)].getKey() > elements[i].getKey()) {
+      //holds the element temporary in the variable temp
       Element temp = elements[i];
+      //assign the element with its parent
       elements[i] = elements[parent(i)];
+      //assign the parent with the temporary which is the element.
       elements[parent(i)] = temp;
       i = parent(i);
     }
