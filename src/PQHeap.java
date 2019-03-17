@@ -2,9 +2,8 @@
  * DM507 Algoritmer og datastrukturer
  *
  * @author Niclas Westergaard Johansen, njoha17@student.sdu.dk
- * @auther Frederik Kvartborg, fralb17@student.sdu.dk
+ * @author Frederik Kvartborg Albertsen, fralb17@student.sdu.dk
  */
-
 public class PQHeap implements PQ {
 
   // Array with the object type Element
@@ -61,12 +60,12 @@ public class PQHeap implements PQ {
     increaseKey(e);
   }
 
-  public void increaseKey(Element e){
+  public void increaseKey(Element e) {
     int i = heapSize;
-    if(elements[parent(i)] == null){
+    if (elements[parent(i)] == null) {
       return;
     }
-    while(i > 0 && elements[parent(i)].getKey() > elements[i].getKey()){
+    while (i > 0 && elements[parent(i)].getKey() > elements[i].getKey()) {
       Element temp = elements[i];
       elements[i] = elements[parent(i)];
       elements[parent(i)] = temp;
@@ -78,22 +77,22 @@ public class PQHeap implements PQ {
    *
    * @param i
    */
-  public void minHeapify(int i){
+  public void minHeapify(int i) {
     int l = left(i);
     int r = right(i);
     int minimum;
 
-    if(l <= heapSize && elements[l].getKey() < elements[i].getKey()){
+    if (l <= heapSize && elements[l].getKey() < elements[i].getKey()) {
       minimum = l;
-    } else{
+    } else {
       minimum = i;
     }
 
-    if(r <= heapSize && elements[r].getKey() < elements[minimum].getKey()){
+    if (r <= heapSize && elements[r].getKey() < elements[minimum].getKey()) {
       minimum = r;
     }
 
-    if(minimum != i){
+    if (minimum != i) {
       Element temp = elements[minimum];
       elements[minimum] = elements[i];
       elements[i] = temp;
@@ -108,7 +107,7 @@ public class PQHeap implements PQ {
    * @param i int which is the index
    * @return the parent index
    */
-  private int parent(int i){
+  private int parent(int i) {
     return i / 2;
   }
 
@@ -117,7 +116,7 @@ public class PQHeap implements PQ {
    * @param i int which is the index
    * @return index of the element to the left
    */
-  private int left(int i){
+  private int left(int i) {
     return i * 2;
   }
 
@@ -126,7 +125,7 @@ public class PQHeap implements PQ {
    * @param i int which is the index
    * @return index of the element to the right
    */
-  private int right(int i){
+  private int right(int i) {
     return i * 2 + 1;
   }
 
