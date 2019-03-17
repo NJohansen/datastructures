@@ -26,7 +26,6 @@ public class PQHeap implements PQ {
    */
   @Override
   public Element extractMin() {
-
     // The minimum Element min is assigned to index 0 in the array elements.
     Element min = elements[0];
 
@@ -36,8 +35,7 @@ public class PQHeap implements PQ {
     // Decrease the size of the heap
     heapSize--;
 
-    // Use the method minHeapify() to
-    //TODO
+    // Use the method minHeapify() to recreate the heap
     minHeapify(0);
 
     // Returns the smallest Element from the heap
@@ -60,6 +58,10 @@ public class PQHeap implements PQ {
     increaseKey(e);
   }
 
+  /**
+   * Increase key for any parents in the heap
+   * @param e
+   */
   public void increaseKey(Element e) {
     int i = heapSize;
     if (elements[parent(i)] == null) {
@@ -74,7 +76,7 @@ public class PQHeap implements PQ {
   }
 
   /**
-   *
+   * Run min heapify to re create a valid and well distributed heap
    * @param i
    */
   public void minHeapify(int i) {
@@ -99,7 +101,6 @@ public class PQHeap implements PQ {
 
       minHeapify(minimum);
     }
-
   }
 
   /**
