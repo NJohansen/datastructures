@@ -1,18 +1,21 @@
+import java.util.Scanner;
+
 public class Treesort {
 
- public static void main(String[] args) {
+  public static void main(String[] args) {
 
-	Dict dict = new DictBinTree();
+    Dict dict = new DictBinTree();
 
-	int n = 0;
-	Scanner sc = new Scanner(System.in);
-	while (sc.hasNextInt()) {
-	    dict.insert(sc.nextInt());
-	    n++;
-       }
+    int n = 0;
+    Scanner sc = new Scanner(System.in);
+    while (sc.hasNextInt()) {
+      dict.insert(sc.nextInt());
+      n++;
+    }
 
-       System.out.println(dict.orderedTraversal());
-   }
-
+    for (int num : dict.orderedTraversal()) {
+      System.out.println(num);
+    }
+  }
 
 }
