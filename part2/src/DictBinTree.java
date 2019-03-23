@@ -1,27 +1,29 @@
 public class DictBinTree implements Dict {
 
-  public Tree tree = new Tree();
-  public int count;
+  private Node root = null;
+  private int count;
+  private int index;
 
   @Override
   public void insert(int k) {
     Node y = null;
-    Node x = tree.root;
+    Node x = root;
 
     while (x != null) {
       y = x;
-        if(k < x.key){
-          x = x.left;
-        } else{
-          x = x.right;
-        }
+      if (k < x.key) {
+        x = x.left;
+      } else {
+        x = x.right;
+      }
     }
+
     Node child = new Node(k);
 
-    if( y == null){
-      tree.root = child;
-    } else if(k < y.key){
-        y.left = child;
+    if (y == null) {
+      root = child;
+    } else if (k < y.key) {
+      y.left = child;
     } else {
       y.right = child;
     }
@@ -31,15 +33,16 @@ public class DictBinTree implements Dict {
 
   @Override
   public int[] orderedTraversal() {
-    return inorderTreeWalk(tree.root, new int[count], 0);
+    index = 0;
+    return inorderedWalk(root, new int[count]);
   }
 
-  private int[] inorderTreeWalk(Node node, int[] list, int i){
-    if(node != null){
-        inorderTreeWalk(node.left, list, i);
-        list[i] = node.key;
-        i++;
-        inorderTreeWalk(node.right, list, i);
+  private int[] inorderedWalk(Node node, int[] list) {
+    if (node != null) {
+      inorderedWalk(node.left, list);
+      list[index] = node.key;
+      index++;
+      inorderedWalk(node.right, list);
     }
 
     return list;
@@ -47,16 +50,16 @@ public class DictBinTree implements Dict {
 
   @Override
   public boolean search(int k) {
-    return walk(tree.root, k) != null;
+    return walk(root, k) != null;
   }
 
-  private Node walk(Node node, int k){
-    if(node == null || k == node.key){
+  private Node walk(Node node, int k) {
+    if (node == null || k == node.key) {
       return node;
     }
-    if(k < node.key){
+    if (k < node.key) {
       return walk(node.left, k);
-    } else{
+    } else {
       return walk(node.right, k);
     }
   }
