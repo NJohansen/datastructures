@@ -11,7 +11,7 @@ public class DictBinTree implements Dict {
   private Node root = null;
 
   /**
-   * Count is used to count how many elements is wiithin the tree
+   * Count is used to count how many nodes is within the tree
    */
   private int count;
 

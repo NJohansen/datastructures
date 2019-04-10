@@ -1,16 +1,20 @@
 import java.util.Scanner;
 
+/**
+ * DM507 Algoritmer og datastrukturer
+ *
+ * @author Niclas Westergaard Johansen, njoha17@student.sdu.dk
+ * @author Frederik Kvartborg Albertsen, fralb17@student.sdu.dk
+ */
 public class Treesort {
 
   public static void main(String[] args) {
 
     Dict dict = new DictBinTree();
 
-    int n = 0;
     Scanner sc = new Scanner(System.in);
     while (sc.hasNextInt()) {
       dict.insert(sc.nextInt());
-      n++;
     }
 
     for (int num : dict.orderedTraversal()) {
