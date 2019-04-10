@@ -103,11 +103,12 @@ public class DictBinTree implements Dict {
     if (node == null || k == node.key) {
       return node;
     }
+
     if (k < node.key) {
       return walk(node.left, k);
-    } else {
-      return walk(node.right, k);
     }
+
+    return walk(node.right, k);
   }
 
 }
