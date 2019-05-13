@@ -17,9 +17,9 @@ public class DictBinTree implements Dict {
   private int index;
 
   /**
-   * Build the keyword code for each node
+   * Build the code for each node
    */
-  public StringBuilder keyword = new StringBuilder();
+  public StringBuilder code = new StringBuilder();
 
   public DictBinTree(Element a, Element b) {
     root = new Node(a.getKey() + b.getKey(), -1);
@@ -59,14 +59,14 @@ public class DictBinTree implements Dict {
       if (node != null) {
         index = node.index;
 
-        keyword.append("0");
+        code.append("0");
         orderedWalk(node.left, list);
 
-        keyword.append("1");
+        code.append("1");
         orderedWalk(node.right, list);
 
         if (node.index != -1) {
-          list[index] = keyword.toString();
+          list[index] = code.toString();
         }
       }
 

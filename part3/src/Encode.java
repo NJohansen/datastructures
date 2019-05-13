@@ -34,9 +34,9 @@ public class Encode {
    * @param inputpath   path to input file
    * @param outputPath  path to output file
    * @param frequencies table
-   * @param keywords    table
+   * @param codes    table
    */
-  private static void write(String inputpath, String outputPath, int[] frequencies, String[] keywords) {
+  private static void write(String inputpath, String outputPath, int[] frequencies, String[] codes) {
     try (
       FileInputStream input = new FileInputStream(inputpath);
       BitOutputStream file = new BitOutputStream(new FileOutputStream(outputPath))
@@ -46,7 +46,7 @@ public class Encode {
       }
 
       for (int b = 0; b != -1; b = input.read()) {
-        for (String s : keywords[b].split("")) {
+        for (String s : codes[b].split("")) {
           file.writeBit(Integer.parseInt(s));
         }
       }
