@@ -75,6 +75,10 @@ public class DictBinTree implements Dict {
         }
       }
 
+      if (code.length() != 0){
+        code.deleteCharAt(code.length() - 1);
+      }
+
       return list;
   }
 
