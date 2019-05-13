@@ -10,18 +10,15 @@ public class Decode {
       FileOutputStream output = new FileOutputStream(args[1]);
     ) {
       int[] frequencies = new int[256];
-      int bytesRead = 0;
 
       for (int i = 0; i < frequencies.length; i++) {
-        int b = input.readInt();
-        frequencies[i] = b;
-        bytesRead += b;
+        frequencies[i] = input.readInt();
       }
 
       Dict tree = Huffman.init(frequencies);
       Node node = tree.getRoot();
       int b;
-      while ((b = input.readBit()) != -1 && bytesRead > 0) {
+      while ((b = input.readBit()) != -1) {
         if (b == 0) {
           node = node.left;
         } else {
@@ -33,7 +30,6 @@ public class Decode {
         }
 
         output.write(node.index);
-        bytesRead -= 1;
         node = tree.getRoot();
       }
     } catch(IOException err) {
