@@ -20,10 +20,13 @@ public class Decode {
 
       Dict tree = Huffman.init(frequencies);
       Node node = tree.getRoot();
-
       int b;
       while ((b = input.readBit()) != -1 && bytesRead > 0) {
-        node = select(node, b);
+        if (b == 0) {
+          node = node.left;
+        } else {
+          node = node.right;
+        }
 
         if (node.left != null || node.right != null) {
           continue;
@@ -36,13 +39,5 @@ public class Decode {
     } catch(IOException err) {
       System.out.println(err);
     }
-  }
-
-  private static Node select(Node node, int b) {
-    if (b == 0) {
-      return node.left;
-    }
-
-    return node.right;
   }
 }
