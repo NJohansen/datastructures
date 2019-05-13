@@ -21,6 +21,11 @@ public class DictBinTree implements Dict {
    */
   public StringBuilder code = new StringBuilder();
 
+  /**
+   * Create a new DictBinTree from two elements
+   * @param a element which are going to be the left node
+   * @param b element which is going to be the right node
+   */
   public DictBinTree(Element a, Element b) {
     root = new Node(a.getKey() + b.getKey(), -1);
 
