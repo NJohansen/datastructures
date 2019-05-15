@@ -61,21 +61,25 @@ public class DictBinTree implements Dict {
    * @return list of codes
    */
   private String[] orderedWalk(Node node, String[] list) {
-      if (node != null) {
-        index = node.index;
+    if (node != null) {
+      index = node.index;
 
-        code.append("0");
-        orderedWalk(node.left, list);
+      code.append("0");
+      orderedWalk(node.left, list);
 
-        code.append("1");
-        orderedWalk(node.right, list);
+      code.append("1");
+      orderedWalk(node.right, list);
 
-        if (node.index != -1) {
-          list[index] = code.toString();
-        }
+      if (node.index != -1) {
+        list[index] = code.toString();
       }
+    }
 
-      return list;
+    if (code.length() != 0){
+      code.deleteCharAt(code.length() - 1);
+    }
+
+    return list;
   }
 
   /**

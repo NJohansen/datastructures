@@ -19,7 +19,8 @@ public class Encode {
     int[] table = new int[256];
 
     try (FileInputStream file = new FileInputStream(filepath)) {
-      for (int b = 0; b != -1; b = file.read()) {
+      int b;
+      while ((b = file.read()) != -1) {
         table[b]++;
       }
     } catch (IOException err) {
@@ -45,7 +46,8 @@ public class Encode {
         file.writeInt(i);
       }
 
-      for (int b = 0; b != -1; b = input.read()) {
+      int b;
+      while ((b = input.read()) != -1) {
         for (String s : codes[b].split("")) {
           file.writeBit(Integer.parseInt(s));
         }
