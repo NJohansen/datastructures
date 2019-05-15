@@ -5,6 +5,8 @@
  * @author Frederik Kvartborg Albertsen, fralb17@student.sdu.dk
  */
 public interface Dict {
+  // method to get the root node
   public Node getRoot();
+
   public String[] orderedTraversal();
 }

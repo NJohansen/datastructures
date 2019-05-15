@@ -24,9 +24,12 @@ public class BitOutputStream implements AutoCloseable {
   // Creates a bit output stream based on the given byte output
   // stream.
   public BitOutputStream(OutputStream out) {
+    //If the output stream is nothing throw an NullPointerException
     if (out == null)
       throw new NullPointerException("No output stream given");
+    // else set the out from the method argument to the output
     output = out;
+    //set currentByte to 0
     currentByte = 0;
     numBitsInCurrentByte = 0;
   }
