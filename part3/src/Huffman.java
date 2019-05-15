@@ -1,3 +1,9 @@
+/**
+ * DM507 Algoritmer og datastrukturer
+ *
+ * @author Niclas Westergaard Johansen, njoha17@student.sdu.dk
+ * @author Frederik Kvartborg Albertsen, fralb17@student.sdu.dk
+ */
 public class Huffman {
   /**
    * Initialize a new huffman tree from a frequency table
@@ -17,7 +23,7 @@ public class Huffman {
     for (int i = 0; i < frequencies.length - 1; i++) {
       Element a = heap.extractMin();
       Element b = heap.extractMin();
-      
+
       Dict tree = new DictBinTree(a, b);
       heap.insert(new Element(a.getKey() + b.getKey(), tree));
     }
