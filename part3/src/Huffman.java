@@ -19,7 +19,7 @@ public class Huffman {
       heap.insert(new Element(frequencies[i], i));
     }
 
-    //this for loop fills the huffman tree by exctracting the min from the heap
+    // Extract two minimum elements from the heap and construct the huffman tree
     for (int i = 0; i < frequencies.length - 1; i++) {
       Element a = heap.extractMin();
       Element b = heap.extractMin();
