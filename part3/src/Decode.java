@@ -25,16 +25,22 @@ public class Decode {
       int b;
       while ((b = input.readBit()) != -1) {
         if (b == 0) {
+          // if the read bit is 0 then walk left
           node = node.left;
         } else {
+          // if the read bit is 1 then walk right
           node = node.right;
         }
 
         if (node.left != null || node.right != null) {
+          // Not a leaf node continue walking
           continue;
         }
 
+        // write node index to output file
         output.write(node.index);
+
+        // go back to the root of the tree
         node = tree.getRoot();
       }
     } catch(IOException err) {

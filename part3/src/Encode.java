@@ -60,6 +60,7 @@ public class Encode {
       int b;
       // read through the inputfile
       while ((b = input.read()) != -1) {
+        // write the code matching the bytes index
         for (String s : codes[b].split("")) {
           file.writeBit(Integer.parseInt(s));
         }
